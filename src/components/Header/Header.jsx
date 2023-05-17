@@ -16,15 +16,23 @@ export default function Header() {
           <Link className="nav-link">Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link">Features</Link>
+          <Link className="nav-link">All Toys</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link">Pricing</Link>
+          <Link className="nav-link">My Toys</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link">Disabled</Link>
+          <Link className="nav-link">Add a Toy</Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link">Blogs</Link>
         </li>
       </ul>
+      <div className="d-flex" role="search">
+        <Link>
+        <button className="btn btn-outline-success">Login</button>
+        </Link>
+      </div>
     </div>
   </div>
 </nav>
