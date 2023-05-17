@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../assets/images/logo.png'
 export default function Header() {
   return (
-    <div>
+    <div className='sticky-top'>
         <nav className="navbar navbar-expand-lg px-5 p-4" id='Navbar'>
   <div className="container-fluid">
     <Link className=' navbar-brand'>
