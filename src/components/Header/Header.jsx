@@ -4,7 +4,7 @@ import logo from '../../assets/images/logo.png'
 export default function Header() {
   return (
     <div>
-        <nav className="navbar navbar-expand-lg px-5 p-4  bg-body-tertiary">
+        <nav className="navbar navbar-expand-lg px-5 p-4" id='Navbar'>
   <div className="container-fluid">
     <Link className="navbar-brand px-5">
         <div className='d-flex justify-content-center align-items-center'>
@@ -19,20 +19,20 @@ export default function Header() {
       <ul className="navbar-nav m-auto text-center">
         <li className="nav-item px-2">
           <Link to={'/'} className="nav-link">
-          <i className="fa-solid fa-house"></i>
+          <i className="fa-solid fa-house text-white"></i>
           </Link>
         </li>
         <li className="nav-item px-2">
-          <Link className="nav-link">All Toys</Link>
+          <Link className="nav-link text-white fw-bold fs-5 ">All Toys</Link>
         </li>
         <li className="nav-item px-2">
-          <Link className="nav-link">My Toys</Link>
+          <Link className="nav-link text-white fw-bold fs-5">My Toys</Link>
         </li>
         <li className="nav-item px-2">
-          <Link className="nav-link">Add a Toy</Link>
+          <Link className="nav-link text-white fw-bold fs-5">Add a Toy</Link>
         </li>
         <li className="nav-item px-2">
-          <Link className="nav-link">Blogs</Link>
+          <Link className="nav-link text-white fw-bold fs-5">Blogs</Link>
         </li>
       </ul>
       <div className="d-flex justify-content-center px-5">
