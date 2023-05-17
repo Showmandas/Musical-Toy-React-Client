@@ -8,7 +8,7 @@ export default function Banner() {
             <div className="col-lg-6 col-12 mt-5">
             <div className="banner-content w-100">
               <h1 className='fw-bold mb-4'>Kingdom of Musical Toys</h1>
-              <p>Discover the joy of music with our wide range of musical toys for all ages.Musical toys bring joy and creativity to children, fostering a love for music through play and exploration.</p>
+              <p className=' text-secondary'>Discover the joy of music with our wide range of musical toys for all ages.Musical toys bring joy and creativity to children, fostering a love for music through play and exploration.</p>
               <button className="btn bg-info-subtle rounded-lg primary">Shop Now</button>
             </div>
             </div>

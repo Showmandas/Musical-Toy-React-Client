@@ -6,7 +6,7 @@ export default function About() {
       <div className="row">
         <div className="col-lg-6 col-12 my-5">
           <h2 className="mb-4">About Our Toy Shop</h2>
-          <p>
+          <p className=" text-secondary">
             At Musical Toys, we believe in the power of play and the magic of
             music. As passionate advocates for early childhood development, we
             offer a delightful collection of musical toys that inspire

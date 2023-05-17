@@ -37,7 +37,7 @@ export default function Header() {
       </ul>
       <div className="d-flex justify-content-center px-5">
         <Link>
-        <button className="btn btn-outline-success">Login</button>
+        <button className="btn fw-bold border-secondary-subtle btn-outline-info p-3 text-white bg-secondary hover:bg-primary">Login</button>
         </Link>
       </div>
     </div>
