@@ -2,11 +2,11 @@ import React from 'react';
 import logo from '../../assets/images/logo.png'
 
 
-const Footer = () => {
+function Footer(){
   return (
     <footer className="footer mt-5 container-fluid p-5">
       <div className="footer-content row">
-        <div className="footer-logo col-lg-4">
+        <div className="footer-logo col-lg-4 col-12">
           <img src={logo} alt="Website Logo" className='img-fluid rounded-circle mb-3' id='footerLogo' />
           <h3> Musical Toy</h3>
         
@@ -16,7 +16,7 @@ const Footer = () => {
           <p>Phone: 123-344-2340</p>
         </div>
         </div>
-        <div className="footer-social col-lg-4">
+        <div className="footer-social col-lg-4 col-12">
           <h4>Follow Us</h4>
           <div className="social-icons d-flex mt-3 gap-4">
           <i className="fa-brands fa-facebook"></i>
@@ -24,7 +24,7 @@ const Footer = () => {
           <i className="fa-brands fa-instagram"></i>
           </div>
         </div>
-        <div className="footer-address col-lg-4">
+        <div className="footer-address col-lg-4 col-12">
           <h4>Our Address</h4>
           <p> Chattogram, Bangladesh</p>
         </div>

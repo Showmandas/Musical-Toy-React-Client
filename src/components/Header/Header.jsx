@@ -6,7 +6,7 @@ export default function Header() {
     <div>
         <nav className="navbar navbar-expand-lg px-5 p-4" id='Navbar'>
   <div className="container-fluid">
-    <Link className="navbar-brand px-5">
+    <Link className=' navbar-brand'>
         <div className='d-flex justify-content-center align-items-center'>
             <img src={logo} alt="website brand logo" className='img-fluid rounded-circle' id='brandLogo' />
             <span className='fs-4 fw-bold'>Musical Toy</span>
