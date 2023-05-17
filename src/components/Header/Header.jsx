@@ -8,7 +8,7 @@ export default function Header() {
   <div className="container-fluid">
     <Link className=' navbar-brand'>
         <div className='d-flex justify-content-center align-items-center'>
-            <img src={logo} alt="website brand logo" className='img-fluid rounded-circle' id='brandLogo' />
+            <img src={logo} alt="website brand logo" className='img-fluid img-responsive rounded-circle' id='brandLogo' />
             <span className='fs-4 fw-bold'>Musical Toy</span>
         </div>
     </Link>
