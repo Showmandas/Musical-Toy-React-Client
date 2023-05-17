@@ -11,6 +11,7 @@ import "./index.css";
 import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import Blog from './components/BlogPage/Blog';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home/>,
-      }
+      },
+      {
+        path:"/blog",
+        element:<Blog/>,
+      },
     ]
   },
 ]);

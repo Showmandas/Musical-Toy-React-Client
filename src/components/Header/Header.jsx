@@ -32,7 +32,7 @@ export default function Header() {
           <Link className="nav-link text-white fw-bold fs-5">Add a Toy</Link>
         </li>
         <li className="nav-item px-2">
-          <Link className="nav-link text-white fw-bold fs-5">Blogs</Link>
+          <Link to={'/blog'} className="nav-link text-white fw-bold fs-5">Blogs</Link>
         </li>
       </ul>
       <div className="d-flex justify-content-center px-5">
