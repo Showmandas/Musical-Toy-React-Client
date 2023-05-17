@@ -15,11 +15,11 @@ export default function Gallery() {
           <img src={gallery_1} alt="toy gallery pic" className='img-fluid w-75' />
         </div>
         <div className="col-lg-4 col-12 text-center mb-5">
-        <img src={gallery_2} alt="toy gallery pic" className='img-fluid w-75' />
+        <img src={gallery_2} alt="toy gallery pic" className='img-fluid w-75 h-100' />
 
         </div>
         <div className="col-lg-4 col-12 text-center mb-5">
-        <img src={gallery_3} alt="toy gallery pic" className='img-fluid w-75' />
+        <img src={gallery_3} alt="toy gallery pic" className='img-fluid w-75 h-100' />
 
         </div>
         <div className="col-lg-4 col-12 text-center mb-5">
@@ -27,7 +27,7 @@ export default function Gallery() {
 
         </div>
         <div className="col-lg-4 col-12 text-center mb-5">
-        <img src={gallery_5} alt="toy gallery pic" className='img-fluid w-75' />
+        <img src={gallery_5} alt="toy gallery pic" className='img-fluid w-75 h-100' />
 
         </div>
         <div className="col-lg-4 col-12 text-center mb-5">
