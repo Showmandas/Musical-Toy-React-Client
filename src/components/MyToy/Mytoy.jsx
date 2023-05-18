@@ -52,50 +52,6 @@ export default function Mytoy() {
   };
 
   
-//   const handleToyUpdate = (data) => {
-//     console.log(data);
-//     fetch(`http://localhost:5000/updateJob/${data._id}`, {
-//       method: "PUT",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(data),
-//     })
-//       .then((res) => res.json())
-//       .then((result) => {
-//         if (result.modifiedCount > 0) {
-//           setControl(!control);
-//         }
-//         console.log(result);
-//       });
-//   };
-
-    // const handlePay = (id) => {
-    //   console.log(id);
-    //   fetch(`https://doctor-server-nine.vercel.app/bookings/${id}`, {
-    //     method: "PATCH",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify({ status: "Paid" }),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       if (data.modifiedCount > 0) {
-    //         const remaining = booking.filter((book) => book._id !== id);
-    //         const updated = booking.find((book) => book._id === id);
-    //         updated.status = "Paid";
-    //         const newBooking = [updated, ...remaining];
-    //         Swal.fire({
-    //           title: 'Payment Successful',
-    //           text:'Doctor will call you and give a serial number for appointment.Please wait',
-    //           icon: 'success',
-    //         })
-    //         // alert("sffsfdsf");
-    //         setBooking(newBooking);
-    //       }
-    //     });
-    // };
-
   return (
     <div className="container my-5">
       <table className="table text-center  table-striped table-hover table-responsive">
@@ -108,6 +64,7 @@ export default function Mytoy() {
         <th>Quantity</th>
         <th>Category</th>
         <th>rating</th>
+        <th>descrition</th>
         <th colSpan={2}>#Actions</th>
           {user ? mydata.map((data, index) => {
             return (
@@ -126,6 +83,7 @@ export default function Mytoy() {
                 <td>{data.quantity}</td>
                 <td>{data.toyCategory}</td>
                 <td>{data.rating}</td>
+                <td>{data.description}</td>
                 <td>
                   <button
                     className="btn"

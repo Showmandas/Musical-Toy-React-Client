@@ -43,24 +43,23 @@ export default function Alltoy() {
       <table className="table my-5 table-hover table-striped text-center">
         <tbody className="p-3">
         <th>#id</th>
-        <th>Picture</th>
-        <th>User</th>
+        <th>Seller Name</th>
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
         <th>Category</th>
-        <th>rating</th>
+        <th>Details</th>
           {alltoy.map((toydata, index) => {
             return (
               <tr className="p-2">
                 <th scope="row">{index + 1}</th>
-                <td><img src={toydata.photo} alt="toy data image" className="img-fluid toyimg"  /></td>
+              
                 <td>{toydata.name}</td>
                 <td>{toydata.toyname}</td>
                 <td>{toydata.price}</td>
                 <td>{toydata.quantity}</td>
                 <td>{toydata.toyCategory}</td>
-                <td>{toydata.rating}</td>
+                <td><Link to={`/alltoy/${toydata._id}`}><button className="btn bg-info-subtle">View Details</button></Link></td>
                 
               </tr>
             );
