@@ -73,7 +73,7 @@ export default function Header() {
             </ul>
             <div className="d-flex justify-content-center align-items-center gap-3 px-5">
             {
-              user && <img src={user?.photoURL} className="img-fluid rounded-circle" id="userPic"/>
+              user && <img title={user?.displayName} src={user?.photoURL} className="img-fluid rounded-circle" id="userPic"/>
             }
               {user ? (
                 <button onClick={handleLoggedOut} className="btn fw-bold border-secondary-subtle btn-outline-info p-3 text-white bg-secondary hover:bg-primary">
