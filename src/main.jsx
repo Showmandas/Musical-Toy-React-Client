@@ -12,6 +12,8 @@ import Layout from './components/Layout/Layout';
 import Home from './components/Home/Home';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import Blog from './components/BlogPage/Blog';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path:"/blog",
         element:<Blog/>,
+      },
+      {
+        path:"/login",
+        element:<Login/>,
+      },
+      {
+        path:"/register",
+        element:<Register/>,
       },
     ]
   },

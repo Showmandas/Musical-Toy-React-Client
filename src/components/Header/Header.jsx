@@ -36,7 +36,7 @@ export default function Header() {
         </li>
       </ul>
       <div className="d-flex justify-content-center px-5">
-        <Link>
+        <Link to={'/login'}>
         <button className="btn fw-bold border-secondary-subtle btn-outline-info p-3 text-white bg-secondary hover:bg-primary">Login</button>
         </Link>
       </div>

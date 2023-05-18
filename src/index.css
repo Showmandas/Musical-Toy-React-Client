@@ -34,3 +34,7 @@ footer{
     object-fit: cover;
 }
 
+#loginBtn{
+    background-color: #05BFDB !important;
+
+}
