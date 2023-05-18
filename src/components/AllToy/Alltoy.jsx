@@ -28,7 +28,7 @@ export default function Alltoy() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setJobs(data);
+        setAllToy(data);
       });
   };
 
