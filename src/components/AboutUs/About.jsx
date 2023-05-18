@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import aboutPic from '../../assets/images/aboutus.avif'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 export default function About() {
+  useEffect(() => {
+    AOS.init({
+      // Customize options here (if needed)
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+    });
+  }, []);
   return (
-    <div className="container my-5 ">
-      <div className="row">
+    <div className="container my-5">
+      <div className="row" data-aos="fade-up" data-aos-anchor-placement="top-center">
         <div className="col-lg-6 col-12 my-5">
           <h2 className="mb-4">About Our Toy Shop</h2>
           <p className=" text-secondary">
