@@ -45,6 +45,7 @@ footer{
     height: 50px;
 }
 
-#toyImg{
-    height: 100px;
+.toyimg{
+    height: 80px;
+    width: 100px !important;
 }

@@ -1,14 +1,16 @@
-import React, { useContext} from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import React, { useContext } from 'react'
+import { useLoaderData, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../AuthProvider/AuthProvider'
 import Swal from 'sweetalert2'
 
-export default function AddToy() {
-//   const [success, setSuccess] = useState("");
-//   const [error, setError] = useState("");
-  const{user}=useContext(AuthContext)
+export default function Update() {
+   const{user}=useContext(AuthContext)
+  const toyUpdateData=useLoaderData()
+  console.log(toyUpdateData)
+  const{_id,toyname,price,rating,email,name,photo,toyCategory,quantity,description}=toyUpdateData
   const navigate=useNavigate();
-  const handleAddToy = (e) => {
+
+  const handleUpdateToy = (e) => {
     e.preventDefault();
     const form = e.target;
     const toyname = form.toyname.value;
@@ -20,24 +22,24 @@ export default function AddToy() {
     const description = form.description.value;
     const email=user.email;
     const name=user.displayName;
-    const toyData = {name, toyname,email,description, photo,toyCategory,price,rating,quantity };
-    console.log(toyData)
+    const UpdatedToyData = {name, toyname,email,description, photo,toyCategory,price,rating,quantity };
+    console.log(UpdatedToyData)
 
-    fetch('http://localhost:5000/alltoy',{
-        method:"POST",
+    fetch(`http://localhost:5000/mytoy/${_id}`,{
+        method:"PUT",
         headers:{
             "content-type":"application/json"
         },
-        body:JSON.stringify(toyData)
+        body:JSON.stringify(UpdatedToyData)
     })
     .then(res=>res.json()) 
     .then(data=>{console.log(data);
-        if(data.insertedId){
+        if(data.modifiedCount>0){
             Swal.fire({
-                title: "Toy's data successfully Added",
+                title: "Toy's data successfully Updated",
                 icon: 'success',
               })
-              navigate('/alltoy')
+              navigate('/mytoy')
         }
     })
 
@@ -46,14 +48,15 @@ export default function AddToy() {
     
   };
   return (
-    <div className="container my-5">
+    <div>
+      <h2>Update:{toyname}</h2>
       <div className="row">
         <div className="col-lg-6 m-auto col-12">
           <div className="card p-5">
             <div className="mb-3 m-auto text-center">
-              <h3>Add Toy Here</h3>
+              <h3>Update Toy Data</h3>
             </div>
-            <form className="mb-5 p-2" onSubmit={handleAddToy}>
+            <form className="mb-5 p-2" onSubmit={handleUpdateToy}>
               <div className="mb-3">
                 <label className="form-label">Toy Name</label>
                 <input
@@ -62,7 +65,8 @@ export default function AddToy() {
                   className="form-control"
                   id="toyname"
                   placeholder="Enter your name"
-                  required
+                  
+                  defaultValue={toyname}
                 />
               </div>
               <div className="mb-3">
@@ -87,7 +91,7 @@ export default function AddToy() {
               </div>
               <div className="mb-3">
               <label>Select Sub Category</label>
-              <select className="form-select w-50" name="toyCategory" aria-label="Default select example" required>
+              <select className="form-select w-50" name="toyCategory" aria-label="Default select example"  defaultValue={toyCategory}>
   <option selected>Select subcategory</option>
   <option value="Classical">Classical</option>
   <option value="Pop">Pop</option>
@@ -101,8 +105,8 @@ export default function AddToy() {
                   name="price"
                   className="form-control"
                   id="price"
-                  placeholder="Enter price"
-                  required
+                  defaultValue={price}
+                  
                 />
               </div>
               <div className="mb-3">
@@ -112,8 +116,8 @@ export default function AddToy() {
                   name="quantity"
                   className="form-control"
                   id="quantity"
-                  placeholder="Available Quantity"
-                  required
+                  defaultValue={quantity}
+                  
                 />
               </div>
               <div className="mb-3">
@@ -123,8 +127,8 @@ export default function AddToy() {
                   name="rating"
                   className="form-control"
                   id="rating"
-                  placeholder="Give ratings"
-                  required
+                  defaultValue={rating}
+                  
                 />
               </div>
               <div className="mb-3">
@@ -134,24 +138,22 @@ export default function AddToy() {
                   name="photo"
                   className="form-control"
                   id="photo"
-                  placeholder="Enter photo url"
-                  required
+                  defaultValue={photo}
                 />
               </div>
               <div className="mb-3">
               <div className="form-floating">
-  <textarea className="form-control" name="description" placeholder="Enter Details" id="description" required></textarea>
+  <textarea className="form-control" name="description" placeholder="Enter Details" id="description" defaultValue={description}></textarea>
   <label>Give details description</label>
 </div>
               </div>
               <button type="submit" className="btn m-auto mt-3" id="loginBtn">
-                Add Toy
+                Update Toy Data
               </button>
             </form>
-            
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

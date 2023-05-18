@@ -54,8 +54,8 @@ export default function Alltoy() {
             return (
               <tr className="p-2">
                 <th scope="row">{index + 1}</th>
-                <td><img src={toydata.photo} alt="toy data image" className="img-fluid w-50" id="toyImg" /></td>
-                <td>{user?.displayName}</td>
+                <td><img src={toydata.photo} alt="toy data image" className="img-fluid toyimg"  /></td>
+                <td>{toydata.name}</td>
                 <td>{toydata.toyname}</td>
                 <td>{toydata.price}</td>
                 <td>{toydata.quantity}</td>
