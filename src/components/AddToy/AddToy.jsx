@@ -17,7 +17,9 @@ export default function AddToy() {
     const quantity = form.quantity.value;
     const toyCategory = form.toyCategory.value;
     const photo = form.photo.value;
-    const toyData = { toyname, photo,toyCategory,price,rating,quantity };
+    const email=user.email;
+    const name=user.displayName;
+    const toyData = {name, toyname,email, photo,toyCategory,price,rating,quantity };
     console.log(toyData)
 
     fetch('http://localhost:5000/alltoy',{

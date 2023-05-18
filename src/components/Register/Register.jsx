@@ -9,7 +9,7 @@ export default function Register() {
   const{user,updateUser,googleSignIn,createUser}=useContext(AuthContext)
   const handleRegisterForm = (e) => {
     e.preventDefault();
-    setSuccess("");
+    // setSuccess("");
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;

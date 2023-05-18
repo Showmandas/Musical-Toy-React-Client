@@ -55,9 +55,9 @@ export default function Header() {
                   All Toys
                 </Link>
               </li>
-              {user && (
+              {user?.email && (
                 <li className="nav-item px-2">
-                  <Link className="nav-link text-white fw-bold fs-5">
+                  <Link to={'/mytoy'} className="nav-link text-white fw-bold fs-5">
                     My Toys
                   </Link>
                 </li>
