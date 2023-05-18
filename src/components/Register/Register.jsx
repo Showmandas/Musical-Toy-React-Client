@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
 
@@ -7,6 +7,7 @@ export default function Register() {
 //   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const{user,updateUser,googleSignIn,createUser}=useContext(AuthContext)
+  const navigate=useNavigate()
   const handleRegisterForm = (e) => {
     e.preventDefault();
     // setSuccess("");
@@ -37,6 +38,7 @@ export default function Register() {
         console.log(regUser);
         //display image in navmenu
         updateUser(result.user, name, photo);
+        navigate('/')
       })
       .catch((error) => {
         const errMsg = error?.message;

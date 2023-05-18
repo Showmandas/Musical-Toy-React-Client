@@ -35,10 +35,10 @@ export default function Alltoy() {
   
   return (
     <div className="container table-responsive">
-          <h4 className="text-center">All data show here</h4>
-          <div className="d-flex justify-content-center" role="search">
+          <h4 className="text-center mt-5">All data show here</h4>
+          <div className="d-flex justify-content-center w-50 m-auto mt-4 mb-4" role="search">
         <input onChange={(e) => setSearch(e.target.value)} className="form-control me-2" type="text" placeholder="Search" aria-label="Search"/>
-        <button onClick={handleSearchToys} className="btn btn-outline-success" type="submit">Search</button>
+        <button onClick={handleSearchToys} className="btn btn-outline-info fw-bold" type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
       </div>
       <table className="table my-5 table-hover table-striped text-center">
         <tbody className="p-3">
@@ -50,7 +50,6 @@ export default function Alltoy() {
         <th>Quantity</th>
         <th>Category</th>
         <th>rating</th>
-        <th colSpan='2'>#Actions</th>
           {alltoy.map((toydata, index) => {
             return (
               <tr className="p-2">
@@ -62,11 +61,7 @@ export default function Alltoy() {
                 <td>{toydata.quantity}</td>
                 <td>{toydata.toyCategory}</td>
                 <td>{toydata.rating}</td>
-                <td>
-                <Link to={`/singletoy/${toydata._id}`}>
-                  <button className="btn text-white">View Details</button>
-                </Link>
-                </td>
+                
               </tr>
             );
           })}
