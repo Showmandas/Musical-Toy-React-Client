@@ -2,14 +2,14 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
-import { updateProfile, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "firebase/auth";
+import { updateProfile, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../../firebase.config';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 
-const AuthProvider = ({ children }) => {
+export default function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
      //update profile 
-     const updateData = (user, name, photoUrl) => {
+     const updateUser = (user, name, photoUrl) => {
         return updateProfile(user, {
             displayName: name,
             photoURL: photoUrl
@@ -64,7 +64,7 @@ const AuthProvider = ({ children }) => {
         logOutUser,
         googleSignIn,
         loading,
-        updateData,
+        updateUser,
     }
 
     return (
@@ -72,6 +72,5 @@ const AuthProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     );
-};
+}
 
-export default AuthProvider;
