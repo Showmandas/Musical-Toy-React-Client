@@ -38,3 +38,8 @@ footer{
     background-color: #05BFDB !important;
 
 }
+
+#userPic{
+    width: 50px !important;
+    height: 50px;
+}
