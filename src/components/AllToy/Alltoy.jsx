@@ -23,8 +23,8 @@ export default function Alltoy() {
   }, []);
 
   //search toy's by name
-  const handleSearch = () => {
-    fetch(`http://localhost:5000/getJobsByText/${search}`)
+  const handleSearchToys = () => {
+    fetch(`http://localhost:5000/searchToys/${search}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -37,8 +37,8 @@ export default function Alltoy() {
     <div className="container table-responsive">
           <h4 className="text-center">All data show here</h4>
           <div className="d-flex justify-content-center" role="search">
-        <input onChange={(e) => setSearch(e.target.value)} className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+        <input onChange={(e) => setSearch(e.target.value)} className="form-control me-2" type="text" placeholder="Search" aria-label="Search"/>
+        <button onClick={handleSearchToys} className="btn btn-outline-success" type="submit">Search</button>
       </div>
       <table className="table my-5 table-hover table-striped text-center">
         <tbody className="p-3">
