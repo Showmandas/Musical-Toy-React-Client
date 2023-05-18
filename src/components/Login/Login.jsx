@@ -5,7 +5,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2'
 
 export default function Login() {
-    const { logInUser, user } = useContext(AuthContext);
+    const { logInUser, user,googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('')
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -32,6 +32,15 @@ export default function Login() {
                 setError(errmsg)
             })
     }
+
+    // google sign in 
+    const handleGoogleSignIn=()=>{
+        googleSignIn()
+        .then(result=>{
+            console.log(result.user)
+        })
+        .catch(error=>{console.log(error)})
+    }
   return (
     <div className='container my-5'>
     <div className="row">
@@ -53,7 +62,7 @@ export default function Login() {
   <button type="submit" className="btn m-auto mt-3" id='loginBtn'>Login</button>
 </form>
 <p className='text-center mb-4'>Are you new to the site?please <Link to={'/register'} className='text-info fw-bold'>Register</Link></p>
-<button className='btn bg-primary-subtle w-75 m-auto fw-bold fs-5'>Sign in with Google</button>
+<button className='btn bg-primary-subtle w-75 m-auto fw-bold fs-5' onClick={handleGoogleSignIn}>Sign in with Google</button>
             </div>
             <div className='text-center'>
             <p className='text-danger fw-bold text-center fs-4'>{error}</p>

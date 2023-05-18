@@ -1,19 +1,25 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import Swal from 'sweetalert2'
 import { AuthContext } from "../AuthProvider/AuthProvider";
 export default function Header() {
   const { user,logOutUser } = useContext(AuthContext);
 
   const handleLoggedOut=()=>{
     logOutUser()
-    .then(()=>{})
+    .then(()=>{
+      Swal.fire({
+        icon: 'success',
+        title: 'You are logged out',
+      })
+    })
     .catch(error=>console.log(error.message))
 
   }
   return (
     <div className="sticky-top">
-      <nav className="navbar navbar-expand-lg px-5 p-4" id="Navbar">
+      <nav className="navbar navbar-expand-lg px-5 p-2" id="Navbar">
         <div className="container-fluid">
           <Link className=" navbar-brand">
             <div className="d-flex justify-content-center align-items-center">
@@ -76,12 +82,12 @@ export default function Header() {
               user && <img title={user?.displayName} src={user?.photoURL} className="img-fluid rounded-circle" id="userPic"/>
             }
               {user ? (
-                <button onClick={handleLoggedOut} className="btn fw-bold border-secondary-subtle btn-outline-info p-3 text-white bg-secondary hover:bg-primary">
+                <button onClick={handleLoggedOut} className="btn fw-bold border-secondary-subtle btn-outline-info p-2 text-white bg-secondary hover:bg-primary">
                   Logout
                 </button>
               ) : (
                 <Link to={"/login"}>
-                  <button className="btn fw-bold border-secondary-subtle btn-outline-info p-3 text-white bg-secondary hover:bg-primary">
+                  <button className="btn fw-bold border-secondary-subtle btn-outline-info p-2 text-white bg-secondary hover:bg-primary">
                     Login
                   </button>
                 </Link>
