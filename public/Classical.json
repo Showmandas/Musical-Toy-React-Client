@@ -1,0 +1,26 @@
+ [
+      {
+        "id": 1,
+        "name": "Violin",
+        "price": "$500",
+        "image": "https://example.com/violin.jpg",
+        "ratings": 4.8,
+        "viewDetails": "https://example.com/violin-details"
+      },
+      {
+        "id": 2,
+        "name": "Piano",
+        "price": "$3000",
+        "image": "https://example.com/piano.jpg",
+        "ratings": 4.9,
+        "viewDetails": "https://example.com/piano-details"
+      },
+      {
+        "id": 3,
+        "name": "Flute",
+        "price": "$200",
+        "image": "https://example.com/flute.jpg",
+        "ratings": 4.6,
+        "viewDetails": "https://example.com/flute-details"
+      }
+    ]

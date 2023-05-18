@@ -65,7 +65,7 @@ export default function Header() {
 
               {user && (
                 <li className="nav-item px-2">
-                  <Link className="nav-link text-white fw-bold fs-5">
+                  <Link to={'/addtoy'} className="nav-link text-white fw-bold fs-5">
                     Add a Toy
                   </Link>
                 </li>
