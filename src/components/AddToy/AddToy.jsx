@@ -1,12 +1,13 @@
 import React, { useContext} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 export default function AddToy() {
 //   const [success, setSuccess] = useState("");
 //   const [error, setError] = useState("");
   const{user}=useContext(AuthContext)
+  const navigate=useNavigate();
   const handleAddToy = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,6 +19,25 @@ export default function AddToy() {
     const photo = form.photo.value;
     const toyData = { toyname, photo,toyCategory,price,rating,quantity };
     console.log(toyData)
+
+    fetch('http://localhost:5000/alltoy',{
+        method:"POST",
+        headers:{
+            "content-type":"application/json"
+        },
+        body:JSON.stringify(toyData)
+    })
+    .then(res=>res.json()) 
+    .then(data=>{console.log(data);
+        if(data.insertedId){
+            Swal.fire({
+                title: "Toy's data successfully Added",
+                icon: 'success',
+              })
+              navigate('/alltoy')
+        }
+    })
+
 
     
     

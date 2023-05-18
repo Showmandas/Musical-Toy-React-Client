@@ -13,6 +13,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import AddToy from "./components/AddToy/AddToy";
+import Alltoy from "./components/AllToy/Alltoy";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/addtoy",
         element: <AddToy/>,
+      },
+      {
+        path: "/alltoy",
+        element: <Alltoy/>,
       },
     ],
   },

@@ -51,7 +51,7 @@ export default function Header() {
                 </Link>
               </li>
               <li className="nav-item px-2">
-                <Link className="nav-link text-white fw-bold fs-5 ">
+                <Link to={'/alltoy'} className="nav-link text-white fw-bold fs-5 ">
                   All Toys
                 </Link>
               </li>
