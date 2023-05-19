@@ -56,12 +56,12 @@ const router = createBrowserRouter([
       {
         path: "/alltoy/:id",
         element:<PrivateRoute><ViewDetails/></PrivateRoute> ,
-        loader:({params})=>fetch(`http://localhost:5000/alltoy/${params.id}`)
+        loader:({params})=>fetch(`https://musical-toy.vercel.app/alltoy/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <Update/>,
-        loader:({params})=>fetch(`http://localhost:5000/mytoy/${params.id}`)
+        loader:({params})=>fetch(`https://musical-toy.vercel.app/mytoy/${params.id}`)
       },
     ],
   },
@@ -73,4 +73,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>
-);
+);  

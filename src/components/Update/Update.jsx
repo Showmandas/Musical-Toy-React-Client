@@ -25,7 +25,7 @@ export default function Update() {
     const UpdatedToyData = {name, toyname,email,description, photo,toyCategory,price,rating,quantity };
     console.log(UpdatedToyData)
 
-    fetch(`http://localhost:5000/mytoy/${_id}`,{
+    fetch(`https://musical-toy.vercel.app/mytoy/${_id}`,{
         method:"PUT",
         headers:{
             "content-type":"application/json"
@@ -48,8 +48,7 @@ export default function Update() {
     
   };
   return (
-    <div>
-      <h2>Update:{toyname}</h2>
+    <div className='container my-5'>
       <div className="row">
         <div className="col-lg-6 m-auto col-12">
           <div className="card p-5">

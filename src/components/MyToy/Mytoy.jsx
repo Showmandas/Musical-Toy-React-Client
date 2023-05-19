@@ -11,11 +11,16 @@ import { Link } from "react-router-dom";
 export default function Mytoy() {
   const [mydata, setMyData] = useState([]);
   const { user } = useContext(AuthContext);
+  const [sortOrder, setSortOrder] = useState('asc');
+
+//   const [sortdata, setSortData] = useState([]);
+
   //   console.log(mydata);
 
+  
   //show own user added toys
   useEffect(() => {
-    fetch(`http://localhost:5000/mytoy?email=${user?.email}`, {
+    fetch(`https://musical-toy.vercel.app/mytoy?email=${user?.email}`, {
       method: "GET",
     })
       .then((res) => res.json())
@@ -35,7 +40,7 @@ export default function Mytoy() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/mytoy/${id}`, {
+        fetch(`https://musical-toy.vercel.app/mytoy/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -51,9 +56,25 @@ export default function Mytoy() {
     });
   };
 
+  const handleSort=()=>{
+    fetch(`https://musical-toy.vercel.app/mytoy?sort=${sortOrder}`,{
+        method:"GET"
+    })
+    .then(res=>res.json())
+    .then(data=>setMyData(data))
+  }
+
+  const handleSortOrderChange = (event) => {
+    setSortOrder(event.target.value);
+  };
   
   return (
     <div className="container my-5">
+     <select value={sortOrder} onChange={handleSortOrderChange}>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+      <button onClick={handleSort}>Sort</button>
       <table className="table text-center  table-striped table-hover table-responsive">
         <tbody>
         <th>#id</th>

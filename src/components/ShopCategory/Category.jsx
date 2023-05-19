@@ -1,27 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import CategoryCard from './CategoryCard';
 export default function Category() {
+  const[category,setCategory]=useState([])
+  const [activeTab, setActiveTab] = useState("classical");
+
+  
+  useEffect(() => {
+    fetch(`https://musical-toy.vercel.app/alltoy/${activeTab}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setCategory(result);
+      });
+  }, []);
+
+  const result=category?.filter(data=>data.status==activeTab);
+  console.log(result)
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
   return (
     <div className='container my-5'>
     <h2>Shop By Category</h2>
         <Tabs className='w-50 m-auto'>
     <TabList className='text-center'>
-      <Tab>Classical</Tab>
-      <Tab>Pop</Tab>
-      <Tab>Hip Hop</Tab>
+      <Tab  onClick={() => handleTabClick("classical")}
+              className={`tab  tab2 classical ${
+                activeTab == "classical" ? " bg-danger text-white" : ""
+              }`}>Classical</Tab>
+      <Tab onClick={() => handleTabClick("pop")}
+              className={`tab  tab2 pop ${
+                activeTab == "pop" ? " bg-danger text-white" : ""
+              }`}>Pop</Tab>
+      <Tab onClick={() => handleTabClick("hiphop")}
+              className={`tab  tab2 hiphop ${
+                activeTab == "hiphop" ? " bg-danger text-white" : ""
+              }`}>Hip Hop</Tab>
     </TabList>
 
     <TabPanel>
     <div className='d-flex'>
-    <div className="card">
-  <img src="..." className="card-img-top" alt="..."/>
-  <div className="card-body">
-    <h5 className="card-title">Violin</h5>
-    <p className="card-text">Price: 500 /-</p>
-    <a href="#" className="btn btn-primary">View Details</a>
-  </div>
-</div>
+    {
+      category.map(datas=><CategoryCard datas={datas}/>)
+    }
     </div>
      
     </TabPanel>

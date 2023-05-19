@@ -23,7 +23,7 @@ export default function AddToy() {
     const toyData = {name, toyname,email,description, photo,toyCategory,price,rating,quantity };
     console.log(toyData)
 
-    fetch('http://localhost:5000/alltoy',{
+    fetch('https://musical-toy.vercel.app/alltoy',{
         method:"POST",
         headers:{
             "content-type":"application/json"
@@ -87,8 +87,8 @@ export default function AddToy() {
               </div>
               <div className="mb-3">
               <label>Select Sub Category</label>
-              <select className="form-select w-50" name="toyCategory" aria-label="Default select example" required>
-  <option selected>Select subcategory</option>
+              <select className="form-select w-100" name="toyCategory" aria-label="Default select example" required>
+  <option>Select subcategory</option>
   <option value="Classical">Classical</option>
   <option value="Pop">Pop</option>
   <option value="Hip hop">Hip Hop</option>

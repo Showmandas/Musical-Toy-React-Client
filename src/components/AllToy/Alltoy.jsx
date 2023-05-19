@@ -15,7 +15,7 @@ export default function Alltoy() {
 
 //   show all toy data 
   useEffect(() => {
-    fetch("http://localhost:5000/alltoy", {
+    fetch("https://musical-toy.vercel.app/alltoy", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -24,7 +24,7 @@ export default function Alltoy() {
 
   //search toy's by name
   const handleSearchToys = () => {
-    fetch(`http://localhost:5000/searchToys/${search}`)
+    fetch(`https://musical-toy.vercel.app/searchToys/${search}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
