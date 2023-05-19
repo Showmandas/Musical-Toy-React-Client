@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 // import logImg from '../../assets/images/logImg.avif'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -41,6 +41,11 @@ export default function Login() {
         })
         .catch(error=>{console.log(error)})
     }
+
+     //add dynamic title
+    useEffect(()=>{
+      document.title="Musical Toy | Log in"
+        },[]);
   return (
     <div className='container my-5'>
     <div className="row">

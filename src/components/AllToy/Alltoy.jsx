@@ -20,6 +20,8 @@ export default function Alltoy() {
     })
       .then((res) => res.json())
       .then((data) => setAllToy(data));
+      document.title="Musical Toy | All Toy"
+
   }, []);
 
   //search toy's by name

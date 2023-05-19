@@ -25,6 +25,8 @@ export default function Mytoy() {
     })
       .then((res) => res.json())
       .then((data) => setMyData(data));
+      document.title="Musical Toy | My Toy"
+
   }, [user]);
 
   //delete toy's data

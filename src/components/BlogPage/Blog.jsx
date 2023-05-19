@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Blog() {
+   //add dynamic title
+  useEffect(()=>{
+    document.title="Musical Toy | Blog"
+      },[]);
   return (
     <div className='container my-5'>
     <div className="card p-4 mb-4">

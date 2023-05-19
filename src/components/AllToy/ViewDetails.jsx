@@ -17,7 +17,8 @@ export default function ViewDetails() {
             method: "GET",
         })
         .then(res=>res.json())
-        .then(data=>setDetails(data))
+        .then(data=>setDetails(data));
+        document.title=`Musical Toy | View Details`
 
     },[user])
   return (

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 // import App from './App.jsx'
 // import './index.css'
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
 import "./index.css";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
@@ -18,6 +18,9 @@ import Mytoy from "./components/MyToy/Mytoy";
 import Update from "./components/Update/Update";
 import ViewDetails from "./components/AllToy/ViewDetails";
 import PrivateRoute from "./components/PrivateRoute";
+
+
+
 
 const router = createBrowserRouter([
   {

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from 'sweetalert2'
@@ -46,6 +46,11 @@ export default function Register() {
         // setError("");
       });
   };
+
+  //add dynamic title
+  useEffect(()=>{
+    document.title="Musical Toy | Registration"
+      },[]);
   return (
     <div className="container my-5">
       <div className="row">
