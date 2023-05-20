@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 export default function Mytoy() {
   const [mydata, setMyData] = useState([]);
   const { user } = useContext(AuthContext);
-  const [sortOrder, setSortOrder] = useState('asc');
+  const [sortOrder, setSortOrder] = useState('ascending');
 
 //   const [sortdata, setSortData] = useState([]);
 
@@ -58,25 +58,26 @@ export default function Mytoy() {
     });
   };
 
-  const handleSort=()=>{
-    fetch(`https://musical-toy.vercel.app/mytoy?sort=${sortOrder}`,{
-        method:"GET"
-    })
+  useEffect(()=>{
+    fetch(`https://musical-toy.vercel.app/mytoy/${sortOrder}`)
     .then(res=>res.json())
     .then(data=>setMyData(data))
-  }
+  },[sortOrder])
 
   const handleSortOrderChange = (event) => {
+    // console.log(event)
     setSortOrder(event.target.value);
   };
   
   return (
     <div className="container my-5">
-     <select value={sortOrder} onChange={handleSortOrderChange}>
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
+    <div className="d-flex gap-2 justify-content-center align-items-center">  
+     <select className="form-select w-25 my-5" value={sortOrder} onChange={handleSortOrderChange}>
+        <option value='ascending'>Ascending</option>
+        <option value='descending'>Descending</option>
       </select>
-      <button onClick={handleSort}>Sort</button>
+      {/* <button onClick={handleSort} className="btn btn-outline-primary">Sort</button> */}
+    </div>
       <table className="table text-center  table-striped table-hover table-responsive">
         <tbody>
         <th>#id</th>

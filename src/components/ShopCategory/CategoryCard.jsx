@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function CategoryCard({datas}) {
-    const{_id,toyname,price,rating,quantity,toyCategory}=datas
+export default function CategoryCard({data}) {
+    const{_id,toyname,price,rating,quantity,toyCategory}=data
   return (
     <div>
         <div className="card">

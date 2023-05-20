@@ -102,7 +102,7 @@ export default function AddToy() {
               <div className="mb-3">
                 <label className="form-label">Price</label>
                 <input
-                  type="text"
+                  type="number"
                   name="price"
                   className="form-control"
                   id="price"
