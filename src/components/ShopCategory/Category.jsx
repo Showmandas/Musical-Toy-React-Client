@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import CategoryCard from "./CategoryCard";
 export default function Category() {
   const [category, setCategory] = useState([]);
@@ -11,10 +11,10 @@ export default function Category() {
   useEffect(() => {
     fetch(`https://musical-toy.vercel.app/alltoy/${activeTab}`)
       .then((res) => res.json())
-      .then(result => {
+      .then((result) => {
         setCategory(result);
       });
-  },[activeTab]);
+  }, [activeTab]);
 
   //   const result=category?.filter(data=>data.toyCategory==activeTab);
   // console.log(result)
@@ -25,10 +25,9 @@ export default function Category() {
   return (
     <div className="container my-5">
       <h2>Shop By Category</h2>
-        <div className="text-center w-50 m-auto">
-          <Tabs>
+      <div className="text-center w-50 m-auto">
+        <Tabs>
           <TabList>
-
             <Tab
               onClick={() => handleTabClick("classical")}
               className={`btn classical
@@ -53,14 +52,13 @@ export default function Category() {
               Hip Hop
             </Tab>
           </TabList>
-          </Tabs>
-        </div>
-        <TabPanel className="container d-flex justify-content-center align-items-center gap-5 my-5">
-          {category.slice(0,3)?.map((data) => (
-            <CategoryCard data={data} key={data._id} />
-          ))}
-        </TabPanel>
+        </Tabs>
       </div>
-
+      <TabPanel className="container d-flex justify-content-center align-items-center gap-5 my-5">
+        {category.slice(0, 3)?.map((data) => (
+          <CategoryCard data={data} key={data._id} />
+        ))}
+      </TabPanel>
+    </div>
   );
 }

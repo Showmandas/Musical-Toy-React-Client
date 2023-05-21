@@ -13,8 +13,6 @@ export default function Mytoy() {
   const { user } = useContext(AuthContext);
   const [sortOrder, setSortOrder] = useState(true);
 
-
-  
   //show own user added toys
   useEffect(() => {
     fetch(`https://musical-toy.vercel.app/mytoy?email=${user?.email}`, {
@@ -22,8 +20,7 @@ export default function Mytoy() {
     })
       .then((res) => res.json())
       .then((data) => setMyData(data));
-      document.title="Musical Toy | My Toy"
-
+    document.title = "Musical Toy | My Toy";
   }, [user]);
 
   //delete toy's data
@@ -55,76 +52,83 @@ export default function Mytoy() {
     });
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`https://musical-toy.vercel.app/mytoy/${sortOrder}`)
-    .then(res=>res.json())
-    .then(data=>setMyData(data))
-  },[sortOrder])
+      .then((res) => res.json())
+      .then((data) => setMyData(data));
+  }, [sortOrder]);
 
   const handleSortOrderChange = (event) => {
     // console.log(event)
     setSortOrder(event.target.value);
   };
-  
 
   return (
     <div className="container my-5">
-    <div className="d-flex gap-2 justify-content-center align-items-center">  
-     <select className="form-select w-25 my-5" value={sortOrder} onChange={handleSortOrderChange}>
-        <option value='ascending'>Ascending</option>
-        <option value='descending'>Descending</option>
-      </select>
-    </div>
+      <div className="d-flex gap-2 justify-content-center align-items-center">
+        <select
+          className="form-select w-25 my-5"
+          value={sortOrder}
+          onChange={handleSortOrderChange}
+        >
+          <option value="ascending">Ascending</option>
+          <option value="descending">Descending</option>
+        </select>
+      </div>
       <table className="table text-center  table-striped table-hover table-responsive">
         <tbody>
-        <th>#id</th>
-        <th>Picture</th>
-        <th>User</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Category</th>
-        <th>rating</th>
-        <th>descrition</th>
-        <th colSpan={2}>#Actions</th>
-          {user ? mydata.map((data, index) => {
-            return (
-              <tr>
-                <th scope="row">{index + 1}</th>
-                <td>
-                  <img
-                    src={data.photo}
-                    alt="toy image"
-                    className="img-fluid w-25 toyimg"
-                  />
-                </td>
-                <td>{data.name}</td>
-                <td>{data.toyname}</td>
-                <td>{data.price}</td>
-                <td>{data.quantity}</td>
-                <td>{data.toyCategory}</td>
-                <td>{data.rating}</td>
-                <td>{data.description}</td>
-                <td>
-                  <button
-                    className="btn"
-                    onClick={()=>handleDeleteToy(data._id)}
-                  >
-                    <i className="fa-solid fa-trash-can fs-5 text-danger"></i>
-                  </button>
-                </td>
-                <td>
-                <Link to={`/update/${data._id}`}>
-                <button className="btn">
-                <i className="fa-regular fs-5 text-info fa-pen-to-square"></i>
-                </button>
-                </Link>
-                </td>
-              </tr>
-            );
-          }):<h1 className="my-5">No data found</h1>}
+          <th>#id</th>
+          <th>Picture</th>
+          <th>User</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th>rating</th>
+          <th>descrition</th>
+          <th colSpan={2}>#Actions</th>
+          {user ? (
+            mydata.map((data, index) => {
+              return (
+                <tr>
+                  <th scope="row">{index + 1}</th>
+                  <td>
+                    <img
+                      src={data.photo}
+                      alt="toy image"
+                      className="img-fluid w-25 toyimg"
+                    />
+                  </td>
+                  <td>{data.name}</td>
+                  <td>{data.toyname}</td>
+                  <td>{data.price}</td>
+                  <td>{data.quantity}</td>
+                  <td>{data.toyCategory}</td>
+                  <td>{data.rating}</td>
+                  <td>{data.description}</td>
+                  <td>
+                    <button
+                      className="btn"
+                      onClick={() => handleDeleteToy(data._id)}
+                    >
+                      <i className="fa-solid fa-trash-can fs-5 text-danger"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <Link to={`/update/${data._id}`}>
+                      <button className="btn">
+                        <i className="fa-regular fs-5 text-info fa-pen-to-square"></i>
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })
+          ) : (
+            <h1 className="my-5">No data found</h1>
+          )}
         </tbody>
       </table>
-     </div>  
+    </div>
   );
 }

@@ -1,13 +1,13 @@
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 export default function AddToy() {
-//   const [success, setSuccess] = useState("");
-//   const [error, setError] = useState("");
-  const{user}=useContext(AuthContext)
-  const navigate=useNavigate();
+  //   const [success, setSuccess] = useState("");
+  //   const [error, setError] = useState("");
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleAddToy = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,37 +18,44 @@ export default function AddToy() {
     const toyCategory = form.toyCategory.value;
     const photo = form.photo.value;
     const description = form.description.value;
-    const email=user.email;
-    const name=user.displayName;
-    const toyData = {name, toyname,email,description, photo,toyCategory,price,rating,quantity };
-    console.log(toyData)
+    const email = user.email;
+    const name = user.displayName;
+    const toyData = {
+      name,
+      toyname,
+      email,
+      description,
+      photo,
+      toyCategory,
+      price,
+      rating,
+      quantity,
+    };
+    console.log(toyData);
 
-    fetch('https://musical-toy.vercel.app/alltoy',{
-        method:"POST",
-        headers:{
-            "content-type":"application/json"
-        },
-        body:JSON.stringify(toyData)
+    fetch("https://musical-toy.vercel.app/alltoy", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(toyData),
     })
-    .then(res=>res.json()) 
-    .then(data=>{console.log(data);
-        if(data.insertedId){
-            Swal.fire({
-                title: "Toy's data successfully Added",
-                icon: 'success',
-              })
-              navigate('/alltoy')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Toy's data successfully Added",
+            icon: "success",
+          });
+          navigate("/alltoy");
         }
-    })
-
-
-    
-    
+      });
   };
- //add dynamic title
-  useEffect(()=>{
-    document.title="Musical Toy | Add Toy"
-      },[]);
+  //add dynamic title
+  useEffect(() => {
+    document.title = "Musical Toy | Add Toy";
+  }, []);
 
   return (
     <div className="container my-5">
@@ -91,13 +98,18 @@ export default function AddToy() {
                 />
               </div>
               <div className="mb-3">
-              <label>Select Sub Category</label>
-              <select className="form-select w-100" name="toyCategory" aria-label="Default select example" required>
-  <option>Select subcategory</option>
-  <option value="Classical">Classical</option>
-  <option value="Pop">Pop</option>
-  <option value="Hip hop">Hip Hop</option>
-</select>
+                <label>Select Sub Category</label>
+                <select
+                  className="form-select w-100"
+                  name="toyCategory"
+                  aria-label="Default select example"
+                  required
+                >
+                  <option>Select subcategory</option>
+                  <option value="Classical">Classical</option>
+                  <option value="Pop">Pop</option>
+                  <option value="Hip hop">Hip Hop</option>
+                </select>
               </div>
               <div className="mb-3">
                 <label className="form-label">Price</label>
@@ -144,16 +156,21 @@ export default function AddToy() {
                 />
               </div>
               <div className="mb-3">
-              <div className="form-floating">
-  <textarea className="form-control" name="description" placeholder="Enter Details" id="description" required></textarea>
-  <label>Give details description</label>
-</div>
+                <div className="form-floating">
+                  <textarea
+                    className="form-control"
+                    name="description"
+                    placeholder="Enter Details"
+                    id="description"
+                    required
+                  ></textarea>
+                  <label>Give details description</label>
+                </div>
               </div>
               <button type="submit" className="btn m-auto mt-3" id="loginBtn">
                 Add Toy
               </button>
             </form>
-            
           </div>
         </div>
       </div>

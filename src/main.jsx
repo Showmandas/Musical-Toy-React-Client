@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 // import App from './App.jsx'
 // import './index.css'
 
-import { createBrowserRouter, RouterProvider, useLocation } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useLocation,
+} from "react-router-dom";
 import "./index.css";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
@@ -18,9 +22,6 @@ import Mytoy from "./components/MyToy/Mytoy";
 import Update from "./components/Update/Update";
 import ViewDetails from "./components/AllToy/ViewDetails";
 import PrivateRoute from "./components/PrivateRoute";
-
-
-
 
 const router = createBrowserRouter([
   {
@@ -46,25 +47,35 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtoy",
-        element: <AddToy/>,
+        element: <AddToy />,
       },
       {
         path: "/alltoy",
-        element: <Alltoy/>,
+        element: <Alltoy />,
       },
       {
         path: "/mytoy",
-        element: <PrivateRoute><Mytoy/></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Mytoy />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/alltoy/:id",
-        element:<PrivateRoute><ViewDetails/></PrivateRoute> ,
-        loader:({params})=>fetch(`https://musical-toy.vercel.app/alltoy/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <ViewDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://musical-toy.vercel.app/alltoy/${params.id}`),
       },
       {
         path: "/update/:id",
-        element: <Update/>,
-        loader:({params})=>fetch(`https://musical-toy.vercel.app/mytoy/${params.id}`)
+        element: <Update />,
+        loader: ({ params }) =>
+          fetch(`https://musical-toy.vercel.app/mytoy/${params.id}`),
       },
     ],
   },
@@ -76,4 +87,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>
-);  
+);

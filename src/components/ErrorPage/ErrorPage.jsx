@@ -13,9 +13,9 @@ const ErrorPage = () => {
           </h2>
           <img src={Error} alt="Error image" className="img-fluid" />
         </div>
-          <Link to="/" className="btn bg-info-subtle fw-bold" id="homeBack">
-            Back to homepage
-          </Link>
+        <Link to="/" className="btn bg-info-subtle fw-bold" id="homeBack">
+          Back to homepage
+        </Link>
       </div>
     </section>
   );

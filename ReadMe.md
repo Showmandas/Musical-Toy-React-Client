@@ -6,4 +6,4 @@
  - Next In this site one of most important work is CRUD(Create,Read,Update,Delete) operation through mongo db.After that use vercel production link for using as a server.Then fetch data dynamically to the client.Finally deploy this site on netlify and created a live site link.
 
  ### Live site link : 
-  [Click on this Live Site link](https://chef-auth-system.web.app) 
+  [Click on this Live Site link](https://musical-toy-site.netlify.app/) 
