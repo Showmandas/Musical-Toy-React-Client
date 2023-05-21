@@ -11,11 +11,8 @@ import { Link } from "react-router-dom";
 export default function Mytoy() {
   const [mydata, setMyData] = useState([]);
   const { user } = useContext(AuthContext);
-  const [sortOrder, setSortOrder] = useState('ascending');
+  const [sortOrder, setSortOrder] = useState(true);
 
-//   const [sortdata, setSortData] = useState([]);
-
-  //   console.log(mydata);
 
   
   //show own user added toys
@@ -69,6 +66,7 @@ export default function Mytoy() {
     setSortOrder(event.target.value);
   };
   
+
   return (
     <div className="container my-5">
     <div className="d-flex gap-2 justify-content-center align-items-center">  
@@ -76,7 +74,6 @@ export default function Mytoy() {
         <option value='ascending'>Ascending</option>
         <option value='descending'>Descending</option>
       </select>
-      {/* <button onClick={handleSort} className="btn btn-outline-primary">Sort</button> */}
     </div>
       <table className="table text-center  table-striped table-hover table-responsive">
         <tbody>

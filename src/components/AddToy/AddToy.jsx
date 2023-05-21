@@ -12,7 +12,7 @@ export default function AddToy() {
     e.preventDefault();
     const form = e.target;
     const toyname = form.toyname.value;
-    const price = form.price.value;
+    const price = Number(form.price.value);
     const rating = form.rating.value;
     const quantity = form.quantity.value;
     const toyCategory = form.toyCategory.value;
@@ -102,7 +102,7 @@ export default function AddToy() {
               <div className="mb-3">
                 <label className="form-label">Price</label>
                 <input
-                  type="number"
+                  type="text"
                   name="price"
                   className="form-control"
                   id="price"
