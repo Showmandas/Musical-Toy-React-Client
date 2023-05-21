@@ -11,7 +11,10 @@
 body {
   background-color: #e3f4f4;
 }
-
+#navbarNav{
+    width: 100% !important;
+    background-color: #05bfdb !important;
+}
 /* navbar logo img style */
 #brandLogo,
 #footerLogo {
